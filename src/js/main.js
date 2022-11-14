@@ -85,8 +85,6 @@ let myuls = ["Running", "Tennis", "Fotball", "Ski"];
 
 let ulTag = document.getElementById("myUL");
 
-// ulTag.innerHTML += "<li class='orange'>" + myuls[i] + "</li>";
-
 for (let i = 0; i < myuls.length; i++) {
   console.log(myuls);
 
