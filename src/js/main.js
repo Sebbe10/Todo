@@ -1,5 +1,3 @@
-// Create a "close" button and append it to each list item
-
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 
@@ -11,7 +9,6 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -21,7 +18,6 @@ for (i = 0; i < close.length; i++) {
   };
 }
 
-// Add a "checked" symbol when clicking on a list item
 var list = document.querySelector("ul");
 
 list.addEventListener(
@@ -29,17 +25,23 @@ list.addEventListener(
   function (ev) {
     if (ev.target.tagName === "LI") {
       ev.target.classList.toggle("checked");
+
+      var myUL = [myuls];
+      savetodos();
+      myUL = [get];
+      myUL.push(myuls);
+      var get = JSON.parse(localStorage.getItem("myUL"));
     }
   },
   false
 );
 
-// Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
+
   if (inputValue === "") {
     // alert("You must write something!");
   } else {
@@ -60,34 +62,42 @@ function newElement() {
   }
 }
 
+function savetodos() {
+  localStorage.setItem("myUL", JSON.stringify(myuls));
+}
+
 class myUL {
   interest;
-  interest;
-  interest;
+  done;
 }
 
 let myul = {
   interest: "Running",
+  done: false,
 };
 
 let myul2 = new myUL();
 myul2.interest = "Tennis";
+myul2.done = false;
 
 let myul3 = new myUL();
 myul3.interest = "Fotball";
+myul3.done = false;
 
 let myul4 = new myUL();
 myul4.interest = "Ski";
+myul4.done = false;
 
 let names = 0;
 
-let myuls = ["Running", "Tennis", "Fotball", "Ski"];
-
 let ulTag = document.getElementById("myUL");
 
-for (let i = 0; i < myuls.length; i++) {
-  console.log(myuls);
+let myuls = [myul, myul2, myul3, myul4];
 
+myuls.splice();
+console.log(4, myuls);
+
+for (let i = 0; i < myuls.length; i++) {
   let li = document.createElement("li");
 
   var span = document.createElement("span");
@@ -95,7 +105,7 @@ for (let i = 0; i < myuls.length; i++) {
   var txt = document.createTextNode("\u00D7");
 
   let ull = document.createElement("button");
-  li.innerHTML = myuls[i];
+  li.innerHTML = myuls[i].interest;
 
   ull.appendChild(span);
   li.appendChild(span);
@@ -106,10 +116,34 @@ for (let i = 0; i < myuls.length; i++) {
 
   span.addEventListener("click", () => {
     li.remove();
+    myuls[i].interest;
+
+    myuls[i].done = true;
   });
 }
 
-localStorage.setItem("myUl", JSON.stringify(myuls));
+function check() {
+  for (let i = 0; i < myuls.length; i++) {
+    let li = document.createElement("li");
 
-let myulsAsString = localStorage.getItem("myUL");
-JSON.parse(myulsAsString);
+    var span = document.createElement("span");
+
+    var txt = document.createTextNode("\u00D7");
+
+    let ull = document.createElement("button");
+    li.innerHTML = myuls[i].interest;
+
+    ull.appendChild(span);
+    li.appendChild(span);
+    ulTag.appendChild(li);
+
+    span.className = "close";
+    span.appendChild(txt);
+
+    // span.addEventListener("click", () => {
+    //   li.remove();
+    myuls[i].interest;
+
+    myuls[i].done = true;
+  }
+}

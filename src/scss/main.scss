@@ -15,7 +15,7 @@ ul li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background:  rgb(160, 148, 148);
+  background: rgb(160, 148, 148);
   font-size: 18px;
   transition: 0.2s;
 
@@ -31,8 +31,7 @@ ul li {
 //   background: #f9f9f9;
 // }
 
-
-ul li:nth-child(1n+1) {
+ul li:nth-child(1n + 1) {
   background: lightblue;
   color: white;
 }
@@ -41,7 +40,6 @@ ul li:nth-child(1n+1) {
 ul li:hover {
   background: lightblue;
 }
-
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
@@ -55,7 +53,7 @@ ul li.checked {
 
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
-  content: '';
+  content: "";
   position: absolute;
   border-color: #fff;
   border-style: solid;
@@ -113,7 +111,6 @@ input {
   float: left;
   font-size: 16px;
   color: black;
-  
 }
 
 /* Style the "Add" button */
@@ -133,4 +130,3 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
-
