@@ -94,7 +94,7 @@ let ulTag = document.getElementById("myUL");
 
 let myuls = [myul, myul2, myul3, myul4];
 
-myuls.splice();
+//myuls.splice();
 console.log(4, myuls);
 
 for (let i = 0; i < myuls.length; i++) {
@@ -115,35 +115,42 @@ for (let i = 0; i < myuls.length; i++) {
   span.appendChild(txt);
 
   span.addEventListener("click", () => {
-    li.remove();
-    myuls[i].interest;
+    //li.remove();
+    //myuls[i].interest;
 
     myuls[i].done = true;
+    check();
   });
 }
 
 function check() {
+  ulTag.innerHTML = "";
+
   for (let i = 0; i < myuls.length; i++) {
-    let li = document.createElement("li");
+    if (!myuls[i].done) {
+      let li = document.createElement("li");
 
-    var span = document.createElement("span");
+      var span = document.createElement("span");
 
-    var txt = document.createTextNode("\u00D7");
+      var txt = document.createTextNode("\u00D7");
 
-    let ull = document.createElement("button");
-    li.innerHTML = myuls[i].interest;
+      let ull = document.createElement("button");
+      li.innerHTML = myuls[i].interest;
 
-    ull.appendChild(span);
-    li.appendChild(span);
-    ulTag.appendChild(li);
+      ull.appendChild(span);
+      li.appendChild(span);
+      ulTag.appendChild(li);
 
-    span.className = "close";
-    span.appendChild(txt);
+      span.className = "close";
+      span.appendChild(txt);
 
-    // span.addEventListener("click", () => {
-    //   li.remove();
-    myuls[i].interest;
+      span.addEventListener("click", () => {
+        //   li.remove();
+        //myuls[i].interest;
 
-    myuls[i].done = true;
+        myuls[i].done = true;
+        check();
+      });
+    }
   }
 }
