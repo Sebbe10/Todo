@@ -1,23 +1,3 @@
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
-
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    var div = this.parentElement;
-    div.style.display = "none";
-  };
-}
-
 var list = document.querySelector("ul");
 
 list.addEventListener(
@@ -43,7 +23,7 @@ function newElement() {
   li.appendChild(t);
 
   if (inputValue === "") {
-    // alert("You must write something!");
+    alert("You must write something!");
   } else {
     document.getElementById("myUL").appendChild(li);
   }
@@ -53,6 +33,8 @@ function newElement() {
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
+
+  var close = document.getElementsByClassName("close");
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
@@ -94,7 +76,6 @@ let ulTag = document.getElementById("myUL");
 
 let myuls = [myul, myul2, myul3, myul4];
 
-//myuls.splice();
 console.log(4, myuls);
 
 for (let i = 0; i < myuls.length; i++) {
@@ -115,9 +96,6 @@ for (let i = 0; i < myuls.length; i++) {
   span.appendChild(txt);
 
   span.addEventListener("click", () => {
-    //li.remove();
-    //myuls[i].interest;
-
     myuls[i].done = true;
     check();
   });
@@ -145,9 +123,6 @@ function check() {
       span.appendChild(txt);
 
       span.addEventListener("click", () => {
-        //   li.remove();
-        //myuls[i].interest;
-
         myuls[i].done = true;
         check();
       });
